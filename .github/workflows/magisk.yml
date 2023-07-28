@@ -725,3 +725,32 @@ jobs:
           repository: ${{ github.repository }}
           retain_days: 5
           keep_minimum_runs: 6
+          
+          - name: Update Android Play Store Version Code
+  # You may pin to the exact commit or the version.
+  # uses: lukasa1993/android-version-code-update@f08e9918a996ab8204b5fab5fad58b57a0bca71b
+  uses: lukasa1993/android-version-code-update@v2.0.5
+  with:
+    # The service account json private key file to authorize the upload request
+    serviceAccountJson: 
+    # The package name, or Application Id, of the app you are uploading
+    packageName: 
+- name: Nextcloud push app to appstore
+  # You may pin to the exact commit or the version.
+  # uses: R0Wi/nextcloud-appstore-push-action@a011fe619bcf6e77ddebc96f9908e1af4071b9c1
+  uses: R0Wi/nextcloud-appstore-push-action@v1.0.3
+  with:
+    # The id of your Nextcloud app
+    app_name: 
+    # A valid access token to upload a new version of your app into Nextcloud appstore
+    appstore_token: # optional
+    # Username for Nextcloud appstore
+    appstore_username: # optional
+    # Password for Nextcloud appstore
+    appstore_password: # optional
+    # The download url of you app tarball
+    download_url: 
+    # The private key string of you app to sign the new release. Usually stored in Github Secrets
+    app_private_key: 
+    # Controls if the app will be published as nightly into the Nextcloud appstore
+    nightly: # optional
